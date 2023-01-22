@@ -41,7 +41,6 @@ export default function App() {
     
     // API DATA receiving all questions
     
-    
         React.useEffect(() => {
             fetch('https://opentdb.com/api.php?amount=5&category=12&difficulty=medium&type=multiple')   
                 .then(res => res.json())
@@ -55,23 +54,14 @@ export default function App() {
                             }
                     }))})
         }, [newPage])   
-                       
-    
-
-
-
-
-        
-   
-    
+                           
     // SET SELECTED ANSWER function (map through questions to find matching id of selected, then set selectedAnswer to true)
     function setSelectedAnswer(id, answer) {
         setQuestions(prevQuestions => {
             return prevQuestions.map(question => {
                 return question.question === id ? {...question, selectedAnswer: answer} : question
             })
-        })
-        
+        })    
     }
     
     // CHECK ANSWERS + PLAY AGAIN
